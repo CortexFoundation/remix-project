@@ -318,7 +318,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
         web3Provider,
         fetchAndCompile,
         dGitProvider,
-        hardhatProvider
+        //hardhatProvider
     ])
 
     // LAYOUT & SYSTEM VIEWS
@@ -447,13 +447,13 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
     engine.register([
         compileTab,
         run,
-        debug,
-        analysis,
-        test,
-        filePanel.remixdHandle,
-        filePanel.gitHandle,
-        filePanel.hardhatHandle,
-        filePanel.slitherHandle
+        //debug,
+        //analysis,
+        //test,
+        //filePanel.remixdHandle,
+        //filePanel.gitHandle,
+        //filePanel.hardhatHandle,
+        //filePanel.slitherHandle
     ])
 
     if (isElectron()) {

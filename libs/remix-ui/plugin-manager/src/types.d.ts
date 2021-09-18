@@ -192,7 +192,7 @@ export type PluginManagerProfile = Profile & {
   description: string,
   kind?: string,
   location: 'sidePanel' | 'mainPanel' | 'none',
-  documentation: 'https://remix-ide.readthedocs.io/en/latest/plugin_manager.html',
+  documentation: 'https://www.cortexlabs.ai/#top',
   version: any
   type: 'iframe' | 'ws'
   hash: string

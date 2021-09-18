@@ -12,7 +12,7 @@ const profile = {
   kind: 'compiler',
   permission: true,
   location: 'sidePanel',
-  documentation: 'https://remix-ide.readthedocs.io/en/latest/solidity_editor.html',
+  documentation: 'https://github.com/CortexFoundation/tech-doc',
   version: '0.0.1',
   methods: ['getCompilationResult', 'compile', 'compileWithParameters', 'setCompilerConfig', 'compileFile' ,'getCompilerState']
 }
