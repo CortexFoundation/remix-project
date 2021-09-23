@@ -170,7 +170,7 @@ class SettingsUI {
             <option data-unit="turing">turing</option>
             <option data-unit="maxwell">maxwell</option>
             <option data-unit="minsky">minsky</option>
-            <option data-unit="cortex">cortex</option>
+            <option data-unit="CTXC">CTXC</option>
           </select>
         </div>
       </div>
