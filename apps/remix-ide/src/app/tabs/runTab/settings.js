@@ -47,7 +47,7 @@ class SettingsUI {
             this.blockchain.getBalanceInEther(account.value, (err, balance) => {
                 if (err) return
                 let updated = helper.shortenAddress(account.value, balance)
-                updated = updated.replaceAll("ether", "cortex")
+                updated = updated.replaceAll("ether", "CTXC")
                 if (updated !== account.innerText) { // check if the balance has been updated and update UI accordingly.
                     account.innerText = updated
                 }

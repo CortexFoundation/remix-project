@@ -195,7 +195,7 @@ class Blockchain extends Plugin {
                 // removed, but for now keeping the original logic
             try {
                 const fee = this.calculateFee(tx.gas, gasPrice)
-                txFeeText = ' ' + this.fromWei(fee, false, 'ether') + ' cortex'
+                txFeeText = ' ' + this.fromWei(fee, false, 'ether') + ' CTXC'
                 priceStatus = true
             } catch (e) {
                 txFeeText = ' Please fix this issue before sending any transaction. ' + e.message

@@ -56,7 +56,7 @@ const confirmationCb = function(network, tx, gasEstimation, continueTxExecution,
                 // removed, but for now keeping the original logic
             try {
                 var fee = Web3.utils.toBN(tx.gas).mul(Web3.utils.toBN(Web3.utils.toWei(gasPrice.toString(10), 'gwei')))
-                txFeeText = ' ' + Web3.utils.fromWei(fee.toString(10), 'ether') + ' cortex'
+                txFeeText = ' ' + Web3.utils.fromWei(fee.toString(10), 'ether') + ' CTXC'
                 priceStatus = true
             } catch (e) {
                 txFeeText = ' Please fix this issue before sending any transaction. ' + e.message
