@@ -2,8 +2,8 @@ const semver = require('semver')
 const minixhr = require('minixhr')
 /* global Worker */
 
-export const baseURLBin = 'https://binaries.soliditylang.org/bin'
-export const baseURLWasm = 'https://binaries.soliditylang.org/wasm'
+export const baseURLBin = ''//'https://binaries.soliditylang.org/bin'
+export const baseURLWasm = ''//'https://binaries.soliditylang.org/wasm'
 
 export const pathToURL = {}
 
@@ -29,7 +29,15 @@ export function urlFromVersion (version) {
     if (location.endsWith('index.html')) location = location.substring(0, location.length - 10)
     if (!location.endsWith('/')) location += '/'
     url = `${location}soljson-v0.8.7.js`
-  }else {
+  } else if (version.startsWith('soljson-v0.4.24')) {
+    let location: string | Location = window.document.location
+    let path = location.pathname
+    if (!path.startsWith('/')) path = '/' + path
+    location = `${location.protocol}//${location.host}${path}assets/js`
+    if (location.endsWith('index.html')) location = location.substring(0, location.length - 10)
+    if (!location.endsWith('/')) location += '/'
+    url = `${location}soljson-v0.4.24.js`
+  } else {
     version = version.replace('.Emscripten.clang', '')
     if (!version.startsWith('soljson-v')) version = 'soljson-v' + version
     if (!version.endsWith('.js')) version = version + '.js'

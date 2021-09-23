@@ -29,7 +29,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     allversions: [],
     customVersions: [],
     selectedVersion: null,
-    defaultVersion: 'soljson-v0.8.7+commit.e28d00a7.js', // this default version is defined: in makeMockCompiler (for browser test)
+    defaultVersion: 'soljson-v0.8.7.js', // this default version is defined: in makeMockCompiler (for browser test)
     runs: '',
     compiledFileName: '',
     includeNightlies: false,
@@ -505,14 +505,11 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
               <button className="far fa-plus-square border-0 p-0 mx-2 btn-sm" onClick={promptCompiler} title="Add a custom compiler with URL"></button>
             </label>
             <select value={ state.selectedVersion || state.defaultVersion } onChange={(e) => handleLoadVersion(e.target.value) } className="custom-select" id="versionSelector" disabled={state.allversions.length <= 0}>
-              { <option value={"builtin"} data-id={state.selectedVersion === 'builtin' ? 'selected' : ''}>earliest local version - 0.4.24</option> }
+              {/* { <option value={"builtin"} data-id={state.selectedVersion === 'builtin' ? 'selected' : ''}>earliest local version - 0.4.24</option> } */}
               { <option value={"soljson-v0.8.7.js"} data-id={state.selectedVersion === 'soljson-v0.8.7.js' ? 'selected' : ''}>soljson-v0.8.7.js</option> }
+              { <option value={"soljson-v0.4.24.js"} data-id={state.selectedVersion === 'soljson-v0.4.24.js' ? 'selected' : ''}>soljson-v0.4.24.js</option> }
               { state.customVersions.map((url, i) => <option key={i} data-id={state.selectedVersion === url ? 'selected' : ''} value={url}>custom</option>)}
             </select>
-          </div>
-          <div className="mb-2 remixui_nightlyBuilds custom-control custom-checkbox">
-            <input className="mr-2 custom-control-input" id="nightlies" type="checkbox" onChange={handleNightliesChange} checked={state.includeNightlies} />
-            <label htmlFor="nightlies" data-id="compilerNightliesBuild" className="form-check-label custom-control-label">Include nightly builds</label>
           </div>
           <div className="mb-2">
             <label className="remixui_compilerLabel form-check-label" htmlFor="compilierLanguageSelector">Language</label>
