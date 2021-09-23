@@ -505,15 +505,9 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
               <button className="far fa-plus-square border-0 p-0 mx-2 btn-sm" onClick={promptCompiler} title="Add a custom compiler with URL"></button>
             </label>
             <select value={ state.selectedVersion || state.defaultVersion } onChange={(e) => handleLoadVersion(e.target.value) } className="custom-select" id="versionSelector" disabled={state.allversions.length <= 0}>
-              { state.allversions.length <= 0 && <option disabled data-id={state.selectedVersion === state.defaultVersion ? 'selected' : ''}>{ state.defaultVersion }</option> }
-              { state.allversions.length <= 0 && <option disabled data-id={state.selectedVersion === 'builtin' ? 'selected' : ''}>builtin</option> }
+              { <option value={"builtin"} data-id={state.selectedVersion === 'builtin' ? 'selected' : ''}>earliest local version - 0.4.24</option> }
+              { <option value={"soljson-v0.8.7.js"} data-id={state.selectedVersion === 'soljson-v0.8.7.js' ? 'selected' : ''}>soljson-v0.8.7.js</option> }
               { state.customVersions.map((url, i) => <option key={i} data-id={state.selectedVersion === url ? 'selected' : ''} value={url}>custom</option>)}
-              { state.allversions.map((build, i) => {
-                return _shouldBeAdded(build.longVersion)
-                  ? <option key={i} value={build.path} data-id={state.selectedVersion === build.path ? 'selected' : ''}>{build.longVersion}</option>
-                  : null
-              })
-              }
             </select>
           </div>
           <div className="mb-2 remixui_nightlyBuilds custom-control custom-checkbox">
@@ -524,7 +518,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
             <label className="remixui_compilerLabel form-check-label" htmlFor="compilierLanguageSelector">Language</label>
             <select onChange={(e) => handleLanguageChange(e.target.value)} value={state.language} className="custom-select" id="compilierLanguageSelector" title="Available since v0.5.7">
               <option value='Solidity'>Solidity</option>
-              <option value='Yul'>Yul</option>
             </select>
           </div>
           <div className="mb-2">

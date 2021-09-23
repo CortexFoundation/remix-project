@@ -238,7 +238,6 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
 
     // APP_MANAGER
     const appManager = self.appManager
-    console.log("wow appppp manager !!!", appManager)
     const pluginLoader = appManager.pluginLoader
     const workspace = pluginLoader.get()
     const engine = new RemixEngine()
