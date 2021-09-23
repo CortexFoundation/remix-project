@@ -7,7 +7,7 @@ export const compile = async (compilationTargets, settings, contentResolverCallb
   const res = await (() => {
     return new Promise((resolve, reject) => {
       const compiler = new Compiler(contentResolverCallback)
-      compiler.set('evmVersion', settings.evmVersion)
+      compiler.set('cvmVersion', settings.cvmVersion)
       compiler.set('optimize', settings.optimize)
       compiler.set('language', settings.language)
       compiler.set('runs', settings.runs)

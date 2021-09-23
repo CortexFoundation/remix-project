@@ -34,7 +34,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     compiledFileName: '',
     includeNightlies: false,
     language: 'Solidity',
-    evmVersion: ''
+    cvmVersion: ''
   })
   const [disableCompileButton, setDisableCompileButton] = useState<boolean>(false)
   const compileIcon = useRef(null)
@@ -68,7 +68,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
         const params = api.getCompilerParameters()
         const optimize = params.optimize
         const runs = params.runs as string
-        const evmVersion = params.evmVersion
+        const cvmVersion = params.cvmVersion
 
         return {
           ...prevState,
@@ -77,7 +77,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
           includeNightlies: api.getAppParameter('includeNightlies') as boolean || false,
           optimize: optimize,
           runs: runs,
-          evmVersion: (evmVersion !== null) && (evmVersion !== 'null') && (evmVersion !== undefined) && (evmVersion !== 'undefined') ? evmVersion : 'default'
+          cvmVersion: (cvmVersion !== null) && (cvmVersion !== 'null') && (cvmVersion !== undefined) && (cvmVersion !== 'undefined') ? cvmVersion : 'default'
         }
       })
     }
@@ -463,7 +463,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     })
   }
 
-  const handleEvmVersionChange = (value) => {
+  const handleCvmVersionChange = (value) => {
     if (!value) return
     let v = value
     if (v === 'default') {
@@ -472,7 +472,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     compileTabLogic.setEvmVersion(v)
     state.autoCompile && compile()
     setState(prevState => {
-      return { ...prevState, evmVersion: value }
+      return { ...prevState, cvmVersion: value }
     })
   }
 
@@ -489,7 +489,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
   */
   const setConfiguration = (settings: ConfigurationSettings) => {
     handleLoadVersion(`soljson-v${settings.version}.js`)
-    handleEvmVersionChange(settings.evmVersion)
+    handleCvmVersionChange(settings.cvmVersion)
     handleLanguageChange(settings.language)
     handleOptimizeChange(settings.optimize)
     onChangeRuns(settings.runs)
@@ -528,19 +528,9 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
             </select>
           </div>
           <div className="mb-2">
-            <label className="remixui_compilerLabel form-check-label" htmlFor="evmVersionSelector">EVM Version</label>
-            <select value={state.evmVersion} onChange={(e) => handleEvmVersionChange(e.target.value)} className="custom-select" id="evmVersionSelector">
-              <option data-id={state.evmVersion === 'default' ? 'selected' : ''} value="default">compiler default</option>
-              <option data-id={state.evmVersion === 'london' ? 'selected' : ''} value="london">london</option>
-              <option data-id={state.evmVersion === 'berlin' ? 'selected' : ''} value="berlin">berlin</option>
-              <option data-id={state.evmVersion === 'muirGlacier' ? 'selected' : ''} value="muirGlacier">muirGlacier</option>
-              <option data-id={state.evmVersion === 'istanbul' ? 'selected' : ''} value="istanbul">istanbul</option>
-              <option data-id={state.evmVersion === 'petersburg' ? 'selected' : ''} value="petersburg">petersburg</option>
-              <option data-id={state.evmVersion === 'constantinople' ? 'selected' : ''} value="constantinople">constantinople</option>
-              <option data-id={state.evmVersion === 'byzantium' ? 'selected' : ''} value="byzantium">byzantium</option>
-              <option data-id={state.evmVersion === 'spuriousDragon' ? 'selected' : ''} value="spuriousDragon">spuriousDragon</option>
-              <option data-id={state.evmVersion === 'tangerineWhistle' ? 'selected' : ''} value="tangerineWhistle">tangerineWhistle</option>
-              <option data-id={state.evmVersion === 'homestead' ? 'selected' : ''} value="homestead">homestead</option>
+            <label className="remixui_compilerLabel form-check-label" htmlFor="cvmVersionSelector">CVM Version</label>
+            <select value={state.cvmVersion} onChange={(e) => handleCvmVersionChange(e.target.value)} className="custom-select" id="cvmVersionSelector">
+              <option data-id={state.cvmVersion === 'default' ? 'selected' : ''} value="default">compiler default</option>
             </select>
           </div>
           <div className="mt-3">

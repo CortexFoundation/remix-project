@@ -14,7 +14,7 @@ export class CompileTabLogic {
   public compiler
   public optimize
   public runs
-  public evmVersion: string
+  public cvmVersion: string
   public compilerImport
   public event
 
@@ -33,12 +33,12 @@ export class CompileTabLogic {
     this.api.setCompilerParameters({ runs: this.runs })
     this.compiler.set('runs', this.runs)
 
-    this.evmVersion = this.api.getCompilerParameters().evmVersion
-    if (this.evmVersion === 'undefined' || this.evmVersion === 'null' || !this.evmVersion) {
-      this.evmVersion = null
+    this.cvmVersion = this.api.getCompilerParameters().cvmVersion
+    if (this.cvmVersion === 'undefined' || this.cvmVersion === 'null' || !this.cvmVersion) {
+      this.cvmVersion = null
     }
-    this.api.setCompilerParameters({ evmVersion: this.evmVersion })
-    this.compiler.set('evmVersion', this.evmVersion)
+    this.api.setCompilerParameters({ cvmVersion: this.cvmVersion })
+    this.compiler.set('cvmVersion', this.cvmVersion)
   }
 
   setOptimize (newOptimizeValue) {
@@ -54,9 +54,9 @@ export class CompileTabLogic {
   }
 
   setEvmVersion (newEvmVersion) {
-    this.evmVersion = newEvmVersion
-    this.api.setCompilerParameters({ evmVersion: this.evmVersion })
-    this.compiler.set('evmVersion', this.evmVersion)
+    this.cvmVersion = newEvmVersion
+    this.api.setCompilerParameters({ cvmVersion: this.cvmVersion })
+    this.compiler.set('cvmVersion', this.cvmVersion)
   }
 
   getCompilerState () {

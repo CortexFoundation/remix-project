@@ -98,7 +98,7 @@ const jsCompile = `(async () => {
       console.log('compile')
       const params = {
           optimize: false,
-          evmVersion: null,
+          cvmVersion: null,
           language: 'Solidity',
           version: '0.6.8+commit.0bbfe453'
       }
@@ -118,7 +118,7 @@ const jsCompileWithOptimization = `(async () => {
       const params = {
           optimize: true,
           runs: 300,
-          evmVersion: null,
+          cvmVersion: null,
           language: 'Solidity',
           version: '0.6.8+commit.0bbfe453'
       }
@@ -149,7 +149,7 @@ const updateConfiguration = `(async () => {
   try {    
       const params = {
           optimize: false,
-          evmVersion: null,
+          cvmVersion: null,
           language: 'Solidity',
           version: '0.6.8+commit.0bbfe453'
       }

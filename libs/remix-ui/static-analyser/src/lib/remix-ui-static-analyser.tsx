@@ -217,10 +217,10 @@ export const RemixUiStaticAnalyser = (props: RemixUiStaticAnalyserProps) => {
           // Slither Analysis
           if (slitherEnabled) {
             props.analysisModule.call('solidity', 'getCompilerState').then((compilerState) => {
-              const { currentVersion, optimize, evmVersion } = compilerState
+              const { currentVersion, optimize, cvmVersion } = compilerState
               props.analysisModule.call('terminal', 'log', { type: 'info', value: '[Slither Analysis]: Running...' })
               _paq.push(['trackEvent', 'solidityStaticAnalyzer', 'analyzeWithSlither'])
-              props.analysisModule.call('slither', 'analyse', state.file, { currentVersion, optimize, evmVersion }).then(async (result) => {
+              props.analysisModule.call('slither', 'analyse', state.file, { currentVersion, optimize, cvmVersion }).then(async (result) => {
                 if (result.status) {
                   props.analysisModule.call('terminal', 'log', { type: 'info', value: `[Slither Analysis]: Analysis Completed!! ${result.count} warnings found.` })
                   const report = result.data

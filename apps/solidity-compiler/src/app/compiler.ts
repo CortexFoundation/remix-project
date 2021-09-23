@@ -27,7 +27,7 @@ const defaultCompilerParameters = {
   runs: '200',
   optimize: false,
   version: 'soljson-v0.8.7+commit.e28d00a7',
-  evmVersion: null, // compiler default
+  cvmVersion: null, // compiler default
   language: 'Solidity'
 }
 
@@ -46,7 +46,7 @@ export class CompilerClientApi extends CompilerApiMixin(PluginClient) implements
       runs: localStorage.getItem('runs') || defaultCompilerParameters['runs'],
       optimize: localStorage.getItem('optimize') === 'true' ? true : false,
       version: localStorage.getItem('version') || defaultCompilerParameters['version'],
-      evmVersion: localStorage.getItem('evmVersion') || defaultCompilerParameters['evmVersion'], // default
+      cvmVersion: localStorage.getItem('cvmVersion') || defaultCompilerParameters['cvmVersion'], // default
       language: localStorage.getItem('language') || defaultCompilerParameters['language']
     }
     return params

@@ -53,7 +53,7 @@ export interface Options {
 
 export interface CompilerConfiguration {
   currentCompilerUrl: string,
-  evmVersion: string,
+  cvmVersion: string,
   optimize: boolean,
   usingWorker?: boolean,
   runs: number

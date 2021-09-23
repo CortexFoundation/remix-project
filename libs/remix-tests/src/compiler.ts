@@ -124,8 +124,8 @@ export function compileFileOrFiles (filename: string, isDirectory: boolean, opts
       function loadCompiler (next) {
         compiler = new RemixCompiler()
         if (compilerConfig) {
-          const { currentCompilerUrl, evmVersion, optimize, runs } = compilerConfig
-          if (evmVersion) compiler.set('evmVersion', evmVersion)
+          const { currentCompilerUrl, cvmVersion, optimize, runs } = compilerConfig
+          if (cvmVersion) compiler.set('cvmVersion', cvmVersion)
           if (optimize) compiler.set('optimize', optimize)
           if (runs) compiler.set('runs', runs)
           if (currentCompilerUrl) {
@@ -191,9 +191,9 @@ export function compileContractSources (sources: SrcIfc, compilerConfig: Compile
 
   async.waterfall([
     function loadCompiler (next) {
-      const { currentCompilerUrl, evmVersion, optimize, runs, usingWorker } = compilerConfig
+      const { currentCompilerUrl, cvmVersion, optimize, runs, usingWorker } = compilerConfig
       compiler = new RemixCompiler(importFileCb)
-      compiler.set('evmVersion', evmVersion)
+      compiler.set('cvmVersion', cvmVersion)
       compiler.set('optimize', optimize)
       compiler.set('runs', runs)
       compiler.loadVersion(usingWorker, currentCompilerUrl)

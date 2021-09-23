@@ -11,7 +11,7 @@ module.exports = {
     return []
   },
 
-  'Publish on IPFS': function (browser: NightwatchBrowser) {
+  /*'Publish on IPFS': function (browser: NightwatchBrowser) {
     browser
       .waitForElementVisible('#icon-panel', 10000)
       .clickLaunchIcon('filePanel')
@@ -30,7 +30,7 @@ module.exports = {
         })
       })
       .click('[data-id="publishToStorage-modal-footer-ok-react"]')
-  },
+  },*/
 
   /* Disableing the test untill refactoring and the new swarm usage
   'Publish on Swarm': '' + function (browser: NightwatchBrowser) {

@@ -109,7 +109,7 @@ export class FetchAndCompile extends Plugin {
     const settings = {
       version: data.metadata.compiler.version,
       language: data.metadata.language,
-      evmVersion: data.metadata.settings.evmVersion,
+      cvmVersion: data.metadata.settings.cvmVersion,
       optimize: data.metadata.settings.optimizer.enabled,
       runs: data.metadata.settings.runs
     }

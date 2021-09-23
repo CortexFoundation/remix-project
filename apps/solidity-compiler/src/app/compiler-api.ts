@@ -131,7 +131,7 @@ export const CompilerApiMixin = (Base) => class extends Base {
    * The module UI will *not* be updated, the compilation result is returned
    * This function is used by remix-plugin compiler API.
    * @param {object} map of source files.
-   * @param {object} settings {evmVersion, optimize, runs, version, language}
+   * @param {object} settings {cvmVersion, optimize, runs, version, language}
    */
   async compileWithParameters (compilationTargets, settings) {
     const compilerState = this.getCompilerState()
@@ -145,7 +145,7 @@ export const CompilerApiMixin = (Base) => class extends Base {
     const compilerState = this.getCompilerState()
     return {
       currentVersion: compilerState.currentVersion,
-      evmVersion: compilerState.evmVersion,
+      cvmVersion: compilerState.cvmVersion,
       optimize: compilerState.optimize,
       runs: compilerState.runs
     }
@@ -154,7 +154,7 @@ export const CompilerApiMixin = (Base) => class extends Base {
   /**
    * set the compiler configuration
    * This function is used by remix-plugin compiler API.
-   * @param {object} settings {evmVersion, optimize, runs, version, language}
+   * @param {object} settings {cvmVersion, optimize, runs, version, language}
    */
   setCompilerConfig (settings) {
     this.configurationSettings = settings    

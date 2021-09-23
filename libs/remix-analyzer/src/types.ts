@@ -371,7 +371,7 @@ export interface InlineAssemblyAstNode {
   src: string
   AST: YulBlockAstNode
   externalReferences: Array<externalReference>
-  evmVersion: string
+  cvmVersion: string
 }
 
 export interface BlockAstNode {

@@ -46,7 +46,8 @@ class SettingsUI {
         accounts.each((index, account) => {
             this.blockchain.getBalanceInEther(account.value, (err, balance) => {
                 if (err) return
-                const updated = helper.shortenAddress(account.value, balance)
+                let updated = helper.shortenAddress(account.value, balance)
+                updated = updated.replaceAll("ether", "cortex")
                 if (updated !== account.innerText) { // check if the balance has been updated and update UI accordingly.
                     account.innerText = updated
                 }
@@ -100,11 +101,7 @@ class SettingsUI {
           <select id="selectExEnvOptions" data-id="settingsSelectEnvOptions" class="form-control ${css.select} custom-select">
             <option id="vm-mode-london" data-id="settingsVMLondonMode"
               title="Execution environment does not connect to any node, everything is local and in memory only."
-              value="vm-london" name="executionContext" fork="london"> JavaScript VM (London)
-            </option>
-            <option id="vm-mode-berlin" data-id="settingsVMBerlinMode"
-              title="Execution environment does not connect to any node, everything is local and in memory only."
-              value="vm-berlin" name="executionContext" fork="berlin" > JavaScript VM (Berlin)
+              value="vm-london" name="executionContext" fork="london"> JavaScript VM
             </option>
             <option id="injected-mode" data-id="settingsInjectedMode"
               title="Execution environment has been provided by Metamask or similar provider."
@@ -170,10 +167,10 @@ class SettingsUI {
             onchange=${() => this.validateValue()}
           >
           <select name="unit" class="form-control p-1 ${css.gasNvalUnit} ${css.col2_2} custom-select" id="unit">
-            <option data-unit="wei">wei</option>
-            <option data-unit="gwei">gwei</option>
-            <option data-unit="finney">finney</option>
-            <option data-unit="ether">ether</option>
+            <option data-unit="turing">turing</option>
+            <option data-unit="maxwell">maxwell</option>
+            <option data-unit="minsky">minsky</option>
+            <option data-unit="cortex">cortex</option>
           </select>
         </div>
       </div>

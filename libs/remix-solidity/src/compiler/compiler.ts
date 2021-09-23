@@ -27,7 +27,7 @@ export class Compiler {
       currentVersion: null,
       optimize: false,
       runs: 200,
-      evmVersion: null,
+      cvmVersion: null,
       language: 'Solidity',
       compilationStartTime: null,
       target: null,
@@ -113,8 +113,8 @@ export class Compiler {
         let result: CompilationResult = {}
         try {
           if (source && source.sources) {
-            const { optimize, runs, evmVersion, language } = this.state
-            const input = compilerInput(source.sources, { optimize, runs, evmVersion, language })
+            const { optimize, runs, cvmVersion, language } = this.state
+            const input = compilerInput(source.sources, { optimize, runs, cvmVersion, language })
             result = JSON.parse(compiler.compile(input, { import: missingInputsCallback }))
           }
         } catch (exception) {
@@ -184,8 +184,8 @@ export class Compiler {
           let result: CompilationResult = {}
           try {
             if (source && source.sources) {
-              const { optimize, runs, evmVersion, language } = this.state
-              const input = compilerInput(source.sources, { optimize, runs, evmVersion, language })
+              const { optimize, runs, cvmVersion, language } = this.state
+              const input = compilerInput(source.sources, { optimize, runs, cvmVersion, language })
               result = JSON.parse(remoteCompiler.compile(input, { import: missingInputsCallback }))
             }
           } catch (exception) {
@@ -287,12 +287,12 @@ export class Compiler {
 
     this.state.compileJSON = (source: SourceWithTarget) => {
       if (source && source.sources) {
-        const { optimize, runs, evmVersion, language } = this.state
+        const { optimize, runs, cvmVersion, language } = this.state
         jobs.push({ sources: source })
         this.state.worker.postMessage({
           cmd: 'compile',
           job: jobs.length - 1,
-          input: compilerInput(source.sources, { optimize, runs, evmVersion, language })
+          input: compilerInput(source.sources, { optimize, runs, cvmVersion, language })
         })
       }
     }

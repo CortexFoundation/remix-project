@@ -48,7 +48,7 @@ export interface CompilerInput {
     },
     // Version of the EVM to compile for.
     // Affects type checking and code generation.
-    evmVersion?: EVMVersion,
+    cvmVersion?: EVMVersion,
     // Optional: Debugging settings
     debug?: {
       // How to treat revert (and require) reason strings. Settings are
@@ -146,7 +146,7 @@ export interface CompilerInputOptions {
     libraries?: {
         [fileName: string]: Record<string, string>
     },
-    evmVersion?: EVMVersion,
+    cvmVersion?: EVMVersion,
     language?: Language
 }
 
@@ -160,7 +160,7 @@ export interface CompilerState {
     currentVersion: string| null| undefined,
     optimize: boolean,
     runs: number
-    evmVersion: EVMVersion| null,
+    cvmVersion: EVMVersion| null,
     language: Language,
     compilationStartTime: number| null,
     target: string | null,

@@ -46,7 +46,7 @@ export type terminalLog = {
 
 export interface ConfigurationSettings {
     version: string,
-    evmVersion: string,
+    cvmVersion: string,
     language: string,
     optimize: boolean,
     runs: string

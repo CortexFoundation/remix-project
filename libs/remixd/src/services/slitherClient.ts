@@ -77,7 +77,7 @@ export class SlitherClient extends PluginClient {
         return reject(new Error(errMsg))
       }
       const options = { cwd: this.currentSharedFolder, shell: true }
-      const { currentVersion, optimize, evmVersion } = compilerConfig
+      const { currentVersion, optimize, cvmVersion } = compilerConfig
       if (currentVersion && currentVersion.includes('+commit')) {
         // Get compiler version with commit id e.g: 0.8.2+commit.661d110
         const versionString: string = currentVersion.substring(0, currentVersion.indexOf('+commit') + 16)
@@ -121,7 +121,7 @@ export class SlitherClient extends PluginClient {
         remaps = remapString.trim()
       }
       const optimizeOption: string = optimize ? '--optimize' : ''
-      const evmOption: string = evmVersion ? `--evm-version ${evmVersion}` : ''
+      const evmOption: string = cvmVersion ? `--evm-version ${cvmVersion}` : ''
       let solcArgs = ''
       if (optimizeOption) {
         solcArgs += optimizeOption + ' '

@@ -20,8 +20,8 @@ export default (sources: Source, opts: CompilerInputOptions): string => {
       }
     }
   }
-  if (opts.evmVersion) {
-    o.settings.evmVersion = opts.evmVersion
+  if (opts.cvmVersion) {
+    o.settings.cvmVersion = opts.cvmVersion
   }
   if (opts.language) {
     o.language = opts.language

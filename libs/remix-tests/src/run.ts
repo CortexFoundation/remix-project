@@ -93,8 +93,8 @@ commander
     }
 
     if (commander.evm) {
-      compilerConfig.evmVersion = commander.evm
-      log.info(`EVM set to ${compilerConfig.evmVersion}`)
+      compilerConfig.cvmVersion = commander.evm
+      log.info(`EVM set to ${compilerConfig.cvmVersion}`)
     }
 
     if (commander.optimize) {

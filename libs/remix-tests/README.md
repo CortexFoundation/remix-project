@@ -245,7 +245,7 @@ remixTests.runTestSources(contractSources: SrcIfc, versionUrl: string, usingWork
 1. `contractSources` - Contract sources
 2. `compilerConfig` - Custom compiler configuration
 * `currentCompilerUrl: URL to load compiler from`
-* `evmVersion: EVM name`
+* `cvmVersion: EVM name`
 * `optimize: set true to enable optimizartion`
 * `usingWorker?: set true to load compiler using worker`
 * `runs: number of contract runs`
