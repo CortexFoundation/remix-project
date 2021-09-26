@@ -238,6 +238,24 @@ export class RunTab extends ViewPlugin {
                     let unit = 'ether' // default
                     if (['ether', 'finney', 'gwei', 'wei'].indexOf(selectedUnit) >= 0) {
                         unit = selectedUnit
+                    } else {
+                        switch (selectedUnit) {
+                            case 'turing':
+                                unit = 'wei'
+                                break;
+                            case 'maxwell':
+                                unit = 'mwei'
+                                break;
+                            case 'minsky':
+                                unit = 'finney'
+                                break;
+                            case 'CTXC':
+                                unit = 'ether' // default
+                                break;
+                            default:
+                                break;
+
+                        }
                     }
                     cb(null, Web3.utils.toWei(number, unit))
                 } catch (e) {
