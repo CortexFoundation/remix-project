@@ -21,6 +21,14 @@ export function urlFromVersion (version) {
     if (location.endsWith('index.html')) location = location.substring(0, location.length - 10)
     if (!location.endsWith('/')) location += '/'
     url = `${location}soljson.js`
+  } else if (version.startsWith('soljson-v0.8.15')) {
+    let location: string | Location = window.document.location
+    let path = location.pathname
+    if (!path.startsWith('/')) path = '/' + path
+    location = `${location.protocol}//${location.host}${path}assets/js`
+    if (location.endsWith('index.html')) location = location.substring(0, location.length - 10)
+    if (!location.endsWith('/')) location += '/'
+    url = `${location}soljson-v0.8.15.js`
   } else if (version.startsWith('soljson-v0.8.7')) {
     let location: string | Location = window.document.location
     let path = location.pathname
