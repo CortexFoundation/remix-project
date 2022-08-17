@@ -506,6 +506,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
             </label>
             <select value={ state.selectedVersion || state.defaultVersion } onChange={(e) => handleLoadVersion(e.target.value) } className="custom-select" id="versionSelector" disabled={state.allversions.length <= 0}>
               {/* { <option value={"builtin"} data-id={state.selectedVersion === 'builtin' ? 'selected' : ''}>earliest local version - 0.4.24</option> } */}
+              { <option value={"soljson-v0.8.15.js"} data-id={state.selectedVersion === 'soljson-v0.8.15.js' ? 'selected' : ''}>soljson-v0.8.15.js</option> }
               { <option value={"soljson-v0.8.7.js"} data-id={state.selectedVersion === 'soljson-v0.8.7.js' ? 'selected' : ''}>soljson-v0.8.7.js</option> }
               { <option value={"soljson-v0.4.24.js"} data-id={state.selectedVersion === 'soljson-v0.4.24.js' ? 'selected' : ''}>soljson-v0.4.24.js</option> }
               { state.customVersions.map((url, i) => <option key={i} data-id={state.selectedVersion === url ? 'selected' : ''} value={url}>custom</option>)}
